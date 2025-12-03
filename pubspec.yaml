@@ -1,0 +1,13 @@
+name: logforge_cli
+description: logforge cli - A high performance log processing toolkit written in dart
+version: 1.0.0
+
+environment:
+  sdk: ^3.10.1
+
+dependencies:
+  path: ^1.9.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6
