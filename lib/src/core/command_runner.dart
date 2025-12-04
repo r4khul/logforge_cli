@@ -1,4 +1,5 @@
 import 'package:args/command_runner.dart';
+import 'package:logforge_cli/src/commands/cat_command.dart';
 import 'package:logforge_cli/src/commands/hello_command.dart';
 
 CommandRunner<void> buildLogForgeCommandRunner() {
@@ -7,7 +8,9 @@ CommandRunner<void> buildLogForgeCommandRunner() {
     'LogForge CLI - high performance log processing toolkit.',
   );
 
-  runner.addCommand(HelloCommand());
+  runner
+    ..addCommand(HelloCommand())
+    ..addCommand(CatCommand());
 
   return runner;
 }
