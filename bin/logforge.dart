@@ -1,5 +1,5 @@
-import 'package:logforge_cli/logforge_cli.dart' as logforge_cli;
+import 'package:logforge_cli/logforge.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${logforge_cli.calculate()}!');
+void main(List<String> args) async {
+  await runLogForge(args);
 }
