@@ -14,4 +14,11 @@ class LogFilterCriteria {
     this.endDate,
     this.messageContains,
   });
+
+  bool get hasAnyFilter =>
+      level != null ||
+      source != null ||
+      startDate != null ||
+      endDate != null ||
+      messageContains != null;
 }
