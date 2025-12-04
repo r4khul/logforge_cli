@@ -14,7 +14,7 @@ class LogEntry {
   });
 
   factory LogEntry.fromLine(String line) {
-    final pattern = RegExp(r'^(S+)s+(S+)s+[(.+?)]s+(.*)$');
+    final pattern = RegExp(r'^(\S+)\s+(\S+)\s+\[(.+?)\]\s+(.*)$');
     final match = pattern.firstMatch(line);
 
     if (match == null) {

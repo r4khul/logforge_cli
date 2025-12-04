@@ -28,6 +28,6 @@ enum LogLevel {
 
   @override
   String toString() {
-    return name.toLowerCase();
+    return name.toUpperCase();
   }
 }

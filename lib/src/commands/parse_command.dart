@@ -2,19 +2,19 @@ import 'dart:io';
 
 import 'package:args/command_runner.dart';
 import 'package:logforge_cli/src/services/file_reader.dart';
+import 'package:logforge_cli/src/transformers/log_entry_transformer.dart';
 
-class CatCommand extends Command<void> {
+class ParseCommand extends Command<void> {
   @override
-  final String name = 'cat';
+  final String name = 'parse';
   @override
-  final String description =
-      'Streams the contents of a text file to standard output.';
+  final String description = 'Parses log lines into structured entries.';
 
-  CatCommand() {
+  ParseCommand() {
     argParser.addOption(
       'file',
       abbr: 'f',
-      help: 'Path to the file to read.',
+      help: 'Path to the file to parse.',
       valueHelp: 'path',
     );
   }
@@ -29,9 +29,9 @@ class CatCommand extends Command<void> {
 
     try {
       final lines = readFileStream(filePath);
-
-      await for (final line in lines) {
-        print(line);
+      final entries = lines.transform(const LogEntryTransformer());
+      await for (final entry in entries) {
+        print(entry.toString());
       }
     } on FileSystemException catch (e) {
       stderr.writeln("Error reading the file: ${e.message}");
