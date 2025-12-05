@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
+import 'package:logforge_cli/src/models/log_analysis_result.dart';
 import 'package:logforge_cli/src/models/log_entry.dart';
 import 'package:logforge_cli/src/models/log_filter_criteria.dart';
 import 'package:logforge_cli/src/models/log_level.dart';
