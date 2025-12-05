@@ -99,7 +99,8 @@ class AnalyzeCommand extends Command<void> {
       stderr.writeln("Path: ${e.path}");
     }
 
-    final result = analyzeEntries(filteredEntries);
+    // final result = analyzeEntries(filteredEntries); currently using isolates
+    final result = await analyzeEntriesInIsolate(filteredEntries);
     _printAnalysis(result, criteria);
   }
 

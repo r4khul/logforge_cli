@@ -2,3 +2,4 @@
 2025-12-04T15:01:10.500Z ERROR [db] query_failed id=1001
 invalid line that should be skipped
 2025-12-04T15:02:00.000Z WARN [cache] eviction=1
+2025-12-04T15:02:00.000Z FATAL [cache] eviction=7
