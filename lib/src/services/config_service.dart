@@ -55,7 +55,14 @@ Future<LogForgeConfig> loadConfig() async {
   }
 
   final content = await file.readAsString();
-  final jsonMap = jsonDecode(content) as Map<String, dynamic>;
+  final decoded = jsonDecode(content);
+  late final Map<String, dynamic> jsonMap;
+
+  if (decoded is String) {
+    jsonMap = jsonDecode(decoded) as Map<String, dynamic>;
+  } else {
+    jsonMap = decoded as Map<String, dynamic>;
+  }
 
   return LogForgeConfig.fromMap(jsonMap);
 }
@@ -65,6 +72,6 @@ Future<void> saveConfig(LogForgeConfig config) async {
   final file = File(path);
 
   await file.parent.create(recursive: true);
-  final content = jsonEncode(config.toJson());
+  final content = config.toJson();
   await file.writeAsString(content);
 }
