@@ -6,6 +6,7 @@ import 'package:logforge_cli/src/models/log_filter_criteria.dart';
 import 'package:logforge_cli/src/models/log_level.dart';
 import 'package:logforge_cli/src/services/file_reader.dart';
 import 'package:logforge_cli/src/services/log_analyzer.dart';
+import 'package:logforge_cli/src/services/log_filter.dart';
 import 'package:logforge_cli/src/transformers/log_entry_transformer.dart';
 
 class AnalyzeCommand extends Command<void> {
@@ -90,6 +91,7 @@ class AnalyzeCommand extends Command<void> {
       final entriesStream = lines.transform(const LogEntryTransformer());
 
       await for (final entry in entriesStream) {
+        if (!matchesCriteria(entry, criteria)) continue;
         filteredEntries.add(entry);
       }
     } on FileSystemException catch (e) {
@@ -102,8 +104,11 @@ class AnalyzeCommand extends Command<void> {
   }
 
   void _printAnalysis(LogAnalysisResult result, LogFilterCriteria criteria) {
-    stdout.writeln('LogForge Analysis');
-    stdout.writeln('-----------------');
+    stdout.writeln();
+    stdout.writeln('-------------------------');
+    stdout.writeln('LogForge Analysis Result');
+    stdout.writeln('-------------------------');
+    stdout.writeln();
 
     if (criteria.hasAnyFilter) {
       stdout.writeln('Filters:');
@@ -121,6 +126,9 @@ class AnalyzeCommand extends Command<void> {
       }
       stdout.writeln();
     }
+
+    stdout.writeln('Total matching entries: ${result.totalCount}');
+    stdout.writeln();
 
     stdout.writeln('Count by Level:');
     for (final entry in result.countByLevel.entries) {
