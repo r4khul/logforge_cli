@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:logforge_cli/src/models/log_level.dart';
+import 'package:logforge/src/models/log_level.dart';
 
 class LogAnalysisResult {
   final int totalCount;

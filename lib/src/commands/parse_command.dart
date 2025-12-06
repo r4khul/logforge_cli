@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:logforge_cli/src/services/file_reader.dart';
-import 'package:logforge_cli/src/transformers/log_entry_transformer.dart';
+import 'package:logforge/src/services/file_reader.dart';
+import 'package:logforge/src/transformers/log_entry_transformer.dart';
 
 class ParseCommand extends Command<void> {
   @override

@@ -1,5 +1,5 @@
-import 'package:logforge_cli/src/models/log_entry.dart';
-import 'package:logforge_cli/src/models/log_filter_criteria.dart';
+import 'package:logforge/src/models/log_entry.dart';
+import 'package:logforge/src/models/log_filter_criteria.dart';
 
 bool matchesCriteria(LogEntry entry, LogFilterCriteria criteria) {
   if (criteria.level != null && entry.level != criteria.level) {

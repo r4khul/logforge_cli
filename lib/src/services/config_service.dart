@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:logforge_cli/src/models/log_forge_config.dart';
-
+import 'package:logforge/src/models/log_forge_config.dart';
 
 String _configFilePath() {
   final home =

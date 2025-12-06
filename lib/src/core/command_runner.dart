@@ -1,9 +1,9 @@
 import 'package:args/command_runner.dart';
-import 'package:logforge_cli/src/commands/analyze_command.dart';
-import 'package:logforge_cli/src/commands/cat_command.dart';
-import 'package:logforge_cli/src/commands/config_command.dart';
-import 'package:logforge_cli/src/commands/hello_command.dart';
-import 'package:logforge_cli/src/commands/parse_command.dart';
+import 'package:logforge/src/commands/analyze_command.dart';
+import 'package:logforge/src/commands/cat_command.dart';
+import 'package:logforge/src/commands/config_command.dart';
+import 'package:logforge/src/commands/hello_command.dart';
+import 'package:logforge/src/commands/parse_command.dart';
 
 CommandRunner<void> buildLogForgeCommandRunner() {
   final runner = CommandRunner<void>(

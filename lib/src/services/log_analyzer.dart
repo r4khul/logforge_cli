@@ -1,8 +1,8 @@
 import 'dart:isolate';
 
-import 'package:logforge_cli/src/models/log_analysis_result.dart';
-import 'package:logforge_cli/src/models/log_entry.dart';
-import 'package:logforge_cli/src/models/log_level.dart';
+import 'package:logforge/src/models/log_analysis_result.dart';
+import 'package:logforge/src/models/log_entry.dart';
+import 'package:logforge/src/models/log_level.dart';
 
 LogAnalysisResult analyzeEntries(Iterable<LogEntry> entries) {
   final countByLevel = <LogLevel, int>{};

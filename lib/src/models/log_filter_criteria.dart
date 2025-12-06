@@ -1,4 +1,4 @@
-import 'package:logforge_cli/src/models/log_level.dart';
+import 'package:logforge/src/models/log_level.dart';
 
 class LogFilterCriteria {
   final LogLevel? level;

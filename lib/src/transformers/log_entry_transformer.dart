@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:logforge_cli/src/models/log_entry.dart';
+import 'package:logforge/src/models/log_entry.dart';
 
 class LogEntryTransformer extends StreamTransformerBase<String, LogEntry> {
   const LogEntryTransformer();

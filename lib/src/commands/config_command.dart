@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:logforge_cli/src/services/config_service.dart';
+import 'package:logforge/src/services/config_service.dart';
 
 class ConfigCommand extends Command<void> {
   @override

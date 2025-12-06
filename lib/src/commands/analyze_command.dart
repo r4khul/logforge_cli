@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:logforge_cli/src/models/log_analysis_result.dart';
-import 'package:logforge_cli/src/models/log_entry.dart';
-import 'package:logforge_cli/src/models/log_filter_criteria.dart';
-import 'package:logforge_cli/src/models/log_level.dart';
-import 'package:logforge_cli/src/services/file_reader.dart';
-import 'package:logforge_cli/src/services/log_analyzer.dart';
-import 'package:logforge_cli/src/services/log_filter.dart';
-import 'package:logforge_cli/src/transformers/log_entry_transformer.dart';
+import 'package:logforge/src/models/log_analysis_result.dart';
+import 'package:logforge/src/models/log_entry.dart';
+import 'package:logforge/src/models/log_filter_criteria.dart';
+import 'package:logforge/src/models/log_level.dart';
+import 'package:logforge/src/services/file_reader.dart';
+import 'package:logforge/src/services/log_analyzer.dart';
+import 'package:logforge/src/services/log_filter.dart';
+import 'package:logforge/src/transformers/log_entry_transformer.dart';
 
 class AnalyzeCommand extends Command<void> {
   @override

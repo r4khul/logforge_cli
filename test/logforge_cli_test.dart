@@ -1,5 +1,5 @@
-import 'package:logforge_cli/src/models/log_entry.dart';
-import 'package:logforge_cli/src/models/log_level.dart';
+import 'package:logforge/src/models/log_entry.dart';
+import 'package:logforge/src/models/log_level.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -18,5 +18,5 @@ void main() {
     const line = 'not a valid log line';
 
     expect(() => LogEntry.fromLine(line), throwsFormatException);
-  });  
+  });
 }

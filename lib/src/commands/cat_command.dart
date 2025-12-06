@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:args/command_runner.dart';
-import 'package:logforge_cli/src/services/file_reader.dart';
+import 'package:logforge/src/services/file_reader.dart';
 
 class CatCommand extends Command<void> {
   @override
