@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:logforge_cli/src/models/log_level.dart';
@@ -7,11 +6,13 @@ class LogAnalysisResult {
   final int totalCount;
   final Map<LogLevel, int> countByLevel;
   final Map<String, int> countBySource;
+  final Map<String, int> countByMessage;
 
   LogAnalysisResult({
     required this.totalCount,
     required this.countByLevel,
     required this.countBySource,
+    required this.countByMessage,
   });
 
   Map<String, dynamic> toMap() {
@@ -19,6 +20,7 @@ class LogAnalysisResult {
       'totalCount': totalCount,
       'countByLevel': countByLevel,
       'countBySource': countBySource,
+      'countByMessage': countByMessage,
     };
   }
 
@@ -30,6 +32,9 @@ class LogAnalysisResult {
       ),
       countBySource: Map<String, int>.from(
         (map['countBySource'] as Map<String, int>),
+      ),
+      countByMessage: Map<String, int>.from(
+        (map['countByMessage'] as Map<String, int>),
       ),
     );
   }

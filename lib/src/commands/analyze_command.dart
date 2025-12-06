@@ -44,6 +44,11 @@ class AnalyzeCommand extends Command<void> {
         'to',
         help: 'Filter entries up to this ISO-8601 timestamp (inclusive).',
         valueHelp: 'ISO_TIMESTAMP',
+      )
+      ..addOption(
+        'message',
+        help: 'Filter entries which matches the entered message.',
+        valueHelp: 'MESSAGE',
       );
   }
 
@@ -59,6 +64,7 @@ class AnalyzeCommand extends Command<void> {
     final source = argResults!['source'] as String?;
     final fromStr = argResults!['from'] as String?;
     final toStr = argResults!['to'] as String?;
+    final message = argResults!['message'] as String?;
 
     LogLevel? level;
     DateTime? from;
@@ -83,6 +89,7 @@ class AnalyzeCommand extends Command<void> {
       source: source,
       startDate: from,
       endDate: to,
+      messageContains: message,
     );
 
     final filteredEntries = <LogEntry>[];
@@ -121,10 +128,13 @@ class AnalyzeCommand extends Command<void> {
         stdout.writeln('Source: ${criteria.source.toString()}');
       }
       if (criteria.startDate != null) {
-        stdout.writeln('Source: ${criteria.startDate!.toIso8601String()}');
+        stdout.writeln('Start Date: ${criteria.startDate!.toIso8601String()}');
       }
       if (criteria.endDate != null) {
-        stdout.writeln('Source: ${criteria.endDate!.toIso8601String()}');
+        stdout.writeln('End Date: ${criteria.endDate!.toIso8601String()}');
+      }
+      if (criteria.messageContains != null) {
+        stdout.writeln('Message: ${criteria.messageContains!}');
       }
       stdout.writeln();
     }
@@ -141,6 +151,13 @@ class AnalyzeCommand extends Command<void> {
 
     stdout.writeln('Top Sources:');
     for (final entry in result.countBySource.entries) {
+      stdout.writeln('${entry.key}: ${entry.value}');
+    }
+
+    stdout.writeln();
+
+    stdout.writeln('Matches Message:');
+    for (final entry in result.countByMessage.entries) {
       stdout.writeln('${entry.key}: ${entry.value}');
     }
   }
